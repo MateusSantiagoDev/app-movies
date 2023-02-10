@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LoginRequest, UserRequest } from "../types/api-types";
+import { CardDataRequest, CardRequest, LoginRequest, UserRequest } from "../types/api-types";
 
 axios.defaults.baseURL = "https://movies-backend-production.up.railway.app";
 axios.defaults.headers.post["content-type"] = "application/json";
@@ -44,6 +44,31 @@ export const Api = {
 
   createUser: async (user: UserRequest) => {
     const response = await axios.post("/user", user);
+    return response.data;
+  },
+
+  creatMovie: async ({ title, image, description, avaliation }: CardRequest) => {
+    const response = await axios.post("/movie", {
+     title,
+     image,
+     description,
+     avaliation,
+    })
+    return response.data;
+  },
+
+  getMovie: async () => {
+    const response = await axios.get("/movie");
+    return response.data;
+  },
+
+  deleteMovie: async (id: string) => {
+    const response = await axios.delete(`/movie/${id}`);
+    return response.data;
+  },
+
+  updateMovie: async (id: string, data: CardDataRequest) => {
+    const response = await axios.patch(`/movie/${id}`, data);
     return response.data;
   },
 };
