@@ -1,3 +1,8 @@
+export type LoginRequest = {
+  email: string
+  password: string
+}
+
 export interface UserRequest {
   name: string
   cpf: string

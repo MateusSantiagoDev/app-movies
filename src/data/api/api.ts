@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UserRequest } from "../types/api-types";
+import { LoginRequest, UserRequest } from "../types/api-types";
 
 axios.defaults.baseURL = "https://movies-backend-production.up.railway.app";
 axios.defaults.headers.post["content-type"] = "application/json";
@@ -30,6 +30,18 @@ axios.interceptors.response.use(
 );
 
 export const Api = {
+  login: async ({ email, password }: LoginRequest) => {
+    try {
+      const response = await axios.post("/auth", { email, password });
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("email", response.data.user.email);
+      console.log(response);
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
   createUser: async (user: UserRequest) => {
     const response = await axios.post("/user", user);
     return response.data;
