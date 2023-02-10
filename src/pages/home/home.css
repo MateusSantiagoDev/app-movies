@@ -46,20 +46,19 @@
   width: 10%;
 }
 
-.div_home-menu {
-    color: #fff;
-}
-
 .div_home-menu div {
     text-align: center;
     padding-top: 90%;
 }
 
-.div_home-menu div h2 {
+.link_home {
   cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  font-size: 25px;
 }
 
-.div_home-menu div h2:hover {
+.link_home:hover {
   color: goldenrod;
 }
 

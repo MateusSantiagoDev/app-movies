@@ -1,11 +1,12 @@
 import './home.css'
 import { useState, useEffect } from 'react'
 import  { BiLogOutCircle } from 'react-icons/bi'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { homeImg } from './types/home-type'
 import { RouterPath } from '../../routes/route-type'
 
 export function Home() {
+  const navigate = useNavigate()
   const [stateMovie, setStateMovie] = useState<homeImg[]>([]);
   const [stateAnime, setStateAnime] = useState<homeImg[]>([]);
   const [stateSerie, setStateSerie] = useState<homeImg[]>([]);
@@ -34,6 +35,11 @@ export function Home() {
     return null;
   }
 
+  function logout(){  
+    localStorage.removeItem("token");
+    navigate(RouterPath.LOGIN);
+   }
+
   return (
     <div className="div_home">
         <h1>Movie Flix 2.0</h1>
@@ -58,19 +64,19 @@ export function Home() {
       </div>
       <div className="div_home-menu">
         <div>
-            <Link to={}>Movies</Link>
+            <Link className='link_home' to={RouterPath.MOVIES}>Movies</Link>
         </div>
         <div>
-            <h2>Series</h2>
+            <Link className='link_home' to={RouterPath.SERIES}>Series</Link>
         </div>
         <div>
-            <h2>Animes</h2>
+            <Link className='link_home' to={RouterPath.ANIMES}>Animes</Link>
         </div>
         <div>
-            <h2>Perfil</h2>
+            <Link className='link_home' to={RouterPath.PROFILES}>Perfil</Link>
         </div>
         <div className='div_button_logout'>
-        <BiLogOutCircle className="button_logout"/>
+        <BiLogOutCircle className="button_logout" onClick={logout}/>
         </div>
       </div>
     </div>

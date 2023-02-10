@@ -1,4 +1,4 @@
-export type LoginRequest = {
+export interface LoginRequest {
   email: string
   password: string
 }
@@ -13,14 +13,14 @@ export interface UserRequest {
   confirmPassword: string
 }
 
-export type CardRequest = {
+export interface CardRequest {
   title: string;
   description: string;
   avaliation: number;
   image: string;
 };
 
-export type CardDataRequest = {
+export interface CardDataRequest {
   id: string;
   title: string;
   description: string;
