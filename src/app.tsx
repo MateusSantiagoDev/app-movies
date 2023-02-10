@@ -1,11 +1,11 @@
-import { LoginForm } from "./components/form-login/loginForm"
 import { BrowserRouter } from "react-router-dom"
+import { Router } from "./router"
 
 export function App () {
   return (
      <div>
         <BrowserRouter>
-        <LoginForm/>
+        <Router/>
         </BrowserRouter>
      </div>
   )

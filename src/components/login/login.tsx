@@ -1,3 +1,4 @@
+import './login.css'
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Api } from "../../data/api/api";
@@ -13,26 +14,26 @@ export function Login() {
       password: e.currentTarget.password.value,
     }
 
-    const response = await Api.login(LoginPayload)
-    if(!response) {
-        console.error(response.message)
-    }
-    navigate(RouterPath.HOME)
-    
+    const response = await Api.login(LoginPayload)  
+    if (response) {
+      navigate(RouterPath.HOME) 
+    }   
   }
 
   return (
-    <div>
+    <div className="div_login">
+      <div>
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="email" placeholder="email" />
-        <input type="password" placeholder="password" />
+      <form className="form_login" onSubmit={handleSubmit}>
+        <input type="email" placeholder="email" name="email"/>
+        <input type="password" placeholder="password" name="password"/>
         <div>
-          <button type="submit">Entrar</button>
+          <button className="button_form_login" type="submit">Entrar</button>
         </div>
       </form>
-      <div>
+      <div className="div_link-login">
         <Link to={RouterPath.REGISTRATION}>Cadastre-se</Link>
+      </div>
       </div>
     </div>
   )
