@@ -5,4 +5,5 @@ export interface FormLoginTypes {
   idade: number
   role: string
   password: string
+  confirmPassword: string
 }
