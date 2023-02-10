@@ -1,0 +1,71 @@
+.div_home {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+}
+
+.div_home h1 {
+    position: absolute;
+    color: red;
+    background-color: black;
+    border-radius: 1rem;
+    padding: .5rem;
+}
+
+.div_home_menu-img {
+  height: 100%;
+  width: 90%;
+}
+
+.div_home-img {
+  width: 100%;
+  font-size: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.div_home-img div {
+  font-size: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.div_home-img div img {
+  height: 220px;
+  object-fit: cover(10%);
+  width: calc(20%);
+  margin-left: 0px;
+}
+
+.div_home-menu {
+  height: 100vh;
+  width: 10%;
+}
+
+.div_home-menu {
+    color: #fff;
+}
+
+.div_home-menu div {
+    text-align: center;
+    padding-top: 90%;
+}
+
+.div_home-menu div h2 {
+  cursor: pointer;
+}
+
+.div_home-menu div h2:hover {
+  color: goldenrod;
+}
+
+.button_logout {
+  font-size: 25px;
+  color: red;
+  cursor: pointer;
+}
+
