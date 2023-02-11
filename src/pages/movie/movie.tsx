@@ -34,26 +34,33 @@ export function Movie () {
     return (
         <div className='movie-card'>
             <div className='header_movie'>
+                <div className='div_header_movie-exit'>
+                <button onClick={() => {
+                  navigate(RouterPath.HOME)
+                }}>Voltar</button>
+                </div>
+                <div className='div_header_movie-create'>
                 <button>Novo Filme</button>
+                </div>
             </div>
+            <div className='div_movie_body-card'>
             {movie.map((el, index) => (
             <div className='body_movie' key={index}>
                 <h2>{el.title}</h2>
                 <img src={el.image} alt="img" />
-                <span>{el.description}</span>
+                <p>{el.description}</p>
                 <span>{el.avaliation}</span>
-                <div>
-                    <button>editar</button>
+                <div className='div_button_card-movie'>
+                    <button>Editar</button>
                     <button onClick={() => {
                         deleteMovie(el.id)
                     }}>Remover</button>
                 </div>
             </div>
             ))}
+            </div>
             <div className='footer_movie'>
-                <button onClick={() => {
-                  navigate(RouterPath.HOME)
-                }}>Voltar</button>
+                
             </div>
         </div>
     )

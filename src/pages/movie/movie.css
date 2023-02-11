@@ -1,5 +1,89 @@
 .movie-card {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   width: 100%;
-  background-color: cadetblue;
+  background-color: rgb(80, 77, 77);
+  border: solid 10px #fff;
+  padding: 1rem;
+}
+
+.header_movie {
+    height: 20vh;
+    width: 100%;
+    background-image: url('../../assets/images/cinema2.jpg');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.div_header_movie-exit {
+    padding: 1rem;
+}
+
+.div_header_movie-exit button {
+    cursor: pointer;
+    padding: 0 1rem;
+    border-radius: .2rem;
+    font-weight: 700;
+}
+
+.div_header_movie-create {
+    display: flex;
+    justify-content: end;
+    padding: 2rem 1rem;   
+}
+
+.div_header_movie-create button {
+    cursor: pointer;
+    padding: 0 .5rem;
+    border-radius: .2rem;
+    font-weight: 700;
+}
+
+.div_movie_body-card {
+    display: flex;
+    margin: 1rem auto;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  
+} 
+
+.body_movie {
+    text-align: center;
+    min-height: 30vh;
+    height: auto;
+    width: 20%;
+    background-color: antiquewhite;
+    border-radius: .2rem;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.body_movie img {
+    width: 180px;
+}
+
+.div_button_card-movie button {
+    margin: .5rem .5rem 0;
+    padding: .1rem;
+    border: none;
+    background-color: #ccc;
+    border-radius: .2rem;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+
+
+.footer_movie {
+    height: 15vh;
+    width: 100%;
+    background-image: url('../../assets/images/cinema2.jpg');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
