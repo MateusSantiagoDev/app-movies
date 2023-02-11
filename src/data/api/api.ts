@@ -71,4 +71,29 @@ export const Api = {
     const response = await axios.patch(`/movie/${id}`, data);
     return response.data;
   },
+
+  createSerie: async ({ title, image, description, avaliation }: CardRequest) => {
+    const response = await axios.post("/serie", {
+     title,
+     image,
+     description,
+     avaliation,
+    })
+    return response.data;
+  },
+
+  getSerie: async () => {
+    const response = await axios.get("/serie");
+    return response.data;
+  },
+
+  deleteSerie: async (id: string) => {
+    const response = await axios.delete(`/serie/${id}`);
+    return response.data;
+  },
+
+  updateSerie: async (data: CardDataRequest, id: string) => {
+    const response = await axios.patch(`/serie/${id}`, data);
+    return response.data;
+  },
 };
