@@ -67,7 +67,7 @@ export const Api = {
     return response.data;
   },
 
-  updateMovie: async (id: string, data: CardDataRequest) => {
+  updateMovie: async (data: CardDataRequest, id: string) => {
     const response = await axios.patch(`/movie/${id}`, data);
     return response.data;
   },

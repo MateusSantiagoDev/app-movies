@@ -6,4 +6,6 @@ export enum RouterPath {
   MOVIES = "/movie",
   SERIES = "/serie",
   ANIMES = "/animes",
+  FORM = "/form",
+  FORM_UPDATE = "/form-update/:id",
 }

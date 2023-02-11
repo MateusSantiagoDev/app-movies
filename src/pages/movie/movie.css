@@ -10,7 +10,7 @@
 .header_movie {
     height: 20vh;
     width: 100%;
-    background-image: url('../../assets/images/cinema2.jpg');
+    background-image: url('../../assets/images/cinema.jpg');
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
@@ -82,7 +82,7 @@
 .footer_movie {
     height: 15vh;
     width: 100%;
-    background-image: url('../../assets/images/cinema2.jpg');
+    background-image: url('../../assets/images/cinema.jpg');
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;

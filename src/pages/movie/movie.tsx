@@ -40,7 +40,9 @@ export function Movie () {
                 }}>Voltar</button>
                 </div>
                 <div className='div_header_movie-create'>
-                <button>Novo Filme</button>
+                <button onClick={() => {
+                  navigate(RouterPath.FORM)
+                }}>Novo Filme</button>
                 </div>
             </div>
             <div className='div_movie_body-card'>
@@ -51,7 +53,9 @@ export function Movie () {
                 <p>{el.description}</p>
                 <span>{el.avaliation}</span>
                 <div className='div_button_card-movie'>
-                    <button>Editar</button>
+                    <button onClick={() => {
+                        navigate(RouterPath.FORM_UPDATE + el.id)
+                    }}>Editar</button>
                     <button onClick={() => {
                         deleteMovie(el.id)
                     }}>Remover</button>

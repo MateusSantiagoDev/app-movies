@@ -21,7 +21,7 @@ export interface CardRequest {
 };
 
 export interface CardDataRequest {
-  id: string;
+  id?: string;
   title: string;
   description: string;
   avaliation: number;
