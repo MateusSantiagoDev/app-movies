@@ -13,6 +13,13 @@ export function Movie () {
         Render()
     }
 
+    async function deleteMovie (id: string) {
+        const response = await Api.deleteMovie(id)
+        if(response) {
+            Render()
+        }
+    }
+
     function Render () {
         setControl(!control)
     }
@@ -24,11 +31,7 @@ export function Movie () {
     return (
         <div>
             <div className='header_movie'>
-                <ul>
-                    <li>Adicionar</li>
-                    <li>Editar</li>
-                    <li>Remover</li>
-                </ul>
+                <button>Novo Filme</button>
             </div>
             {movie.map((el, index) => (
             <div className='body_movie' key={index}>
@@ -36,6 +39,12 @@ export function Movie () {
                 <img src={el.image} alt="img" />
                 <span>{el.description}</span>
                 <span>{el.avaliation}</span>
+                <div>
+                    <button>editar</button>
+                    <button onClick={() => {
+                        deleteMovie(el.id)
+                    }}>Remover</button>
+                </div>
             </div>
             ))}
             <div className='footer_movie'></div>
