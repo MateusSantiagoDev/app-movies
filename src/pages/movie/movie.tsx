@@ -1,9 +1,12 @@
 import './movie.css'
 import { MovieType } from './types/movie-type'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Api } from '../../data/api/api'
+import { RouterPath } from '../../routes/route-type'
 
 export function Movie () {
+    const navigate = useNavigate()
     const [movie, setMovie] = useState<MovieType[]>([])
     const [control, setControl] = useState<boolean>(false)
 
@@ -29,7 +32,7 @@ export function Movie () {
       }, [control])
 
     return (
-        <div>
+        <div className='movie-card'>
             <div className='header_movie'>
                 <button>Novo Filme</button>
             </div>
@@ -47,7 +50,11 @@ export function Movie () {
                 </div>
             </div>
             ))}
-            <div className='footer_movie'></div>
+            <div className='footer_movie'>
+                <button onClick={() => {
+                  navigate(RouterPath.HOME)
+                }}>Voltar</button>
+            </div>
         </div>
     )
 }
