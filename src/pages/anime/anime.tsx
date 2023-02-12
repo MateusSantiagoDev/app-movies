@@ -5,7 +5,7 @@ import { RouterPath } from '../../routes/route-type';
 import { CardType } from '../../utils/types/card-types';
 import './anime.css'
 
-export function Anime ({ eventHandler }: any) {
+export function Anime ({ eventHandler, eventHandlerId }: any) {
 
     const navigate = useNavigate();
   const [serie, setSerie] = useState<CardType[]>([]);
@@ -47,7 +47,6 @@ export function Anime ({ eventHandler }: any) {
         <div className="div_header_anime-create">
           <button
             onClick={(e) => {
-                console.log(e.currentTarget.TEXT_NODE)
                 eventHandler(e.currentTarget.TEXT_NODE)
                 navigate(RouterPath.FORM);
             }}
@@ -65,7 +64,8 @@ export function Anime ({ eventHandler }: any) {
             <span>{el.avaliation}</span>
             <div className="div_button_card-anime">
               <button
-                onClick={() => {
+                onClick={(e) => {
+                    eventHandlerId(e.currentTarget.TEXT_NODE)
                   navigate(RouterPath.FORM_UPDATE + el.id);
                 }}
               >

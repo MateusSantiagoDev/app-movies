@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Api } from "../../data/api/api";
 import { RouterPath } from "../../routes/route-type";
 
-export function Form({ isValid }: any) {
+export function Form({ isValid, isValidId }: any) {
   const navigate = useNavigate();
   const id = useParams().id?.replace(":id", "");
 
@@ -18,26 +18,41 @@ export function Form({ isValid }: any) {
         image: e.currentTarget.image.value,
       };
 
-      if (!isValid) {
+      if (!isValid && !isValidId) {
         if(id) {
           const response = await Api.updateMovie(data, id);
           if (response) {
             navigate(RouterPath.MOVIES);
           }
-        }
+        }else {
         const response = await Api.creatMovie(data);
         if (response) {
           navigate(RouterPath.MOVIES);
         }
-      } else if (isValid === 1) {
-        const response = await Api.createSerie(data);
-        if (response) {
-          navigate(RouterPath.SERIES);
-        }        
-      } else if (isValid === 3) {
-        const response = await Api.createAnime(data)
-        if (response) {
-          navigate(RouterPath.ANIMES);
+      }
+      } else if (isValid === 1 || isValidId === 1) {
+        if (id) {
+          const response = await Api.updateSerie(data, id)
+          if(response) {
+            navigate(RouterPath.SERIES);
+          }
+        } else {
+          const response = await Api.createSerie(data);
+          if (response) {
+            navigate(RouterPath.SERIES);
+          }     
+        }
+      } else if (isValid === 3 || isValidId === 3) {
+        if (id) {
+          const response = await Api.updateAnime(data, id)
+          if (response) {
+            navigate(RouterPath.ANIMES);
+          }
+        } else {
+          const response = await Api.createAnime(data)
+          if (response) {
+            navigate(RouterPath.ANIMES);
+          }
         }
       }
     

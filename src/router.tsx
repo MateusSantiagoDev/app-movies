@@ -12,6 +12,7 @@ import { useState } from "react";
 export function Router() {
 
   const [ isValue, setIsValue ] = useState(null)
+  const [ isValueId, setIsValueId ] = useState(null)
 
   return (
     <Routes>
@@ -19,10 +20,10 @@ export function Router() {
       <Route path={RouterPath.REGISTRATION} element={<LoginForm />} />
       <Route path={RouterPath.HOME} element={<Home />} />
       <Route path={RouterPath.MOVIES} element={<Movie />} />
-      <Route path={RouterPath.SERIES} element={<Serie eventHandler={(e:any) => setIsValue(e)} />} />
-      <Route path={RouterPath.ANIMES} element={<Anime eventHandler={(e:any) => setIsValue(e)} />} />
+      <Route path={RouterPath.SERIES} element={<Serie eventHandler={(e:any) => setIsValue(e)} eventHandlerId={(e:any) => setIsValueId(e)}/>} />
+      <Route path={RouterPath.ANIMES} element={<Anime eventHandler={(e:any) => setIsValue(e)} eventHandlerId={(e:any) => setIsValueId(e)}/>} />
       <Route path={RouterPath.FORM} element={<Form isValid={isValue} />} />
-      <Route path={RouterPath.FORM_UPDATE} element={<Form isValid={isValue}/>} />
+      <Route path={RouterPath.FORM_UPDATE} element={<Form isValid={isValue} isValidId={isValueId}/>} />
     </Routes>
   )
 }

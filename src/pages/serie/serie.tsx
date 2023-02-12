@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Api } from "../../data/api/api";
 import { RouterPath } from "../../routes/route-type";
 import { CardType } from "../../utils/types/card-types";
-import console from 'console';
 
-export function Serie({ eventHandler }: any) {
+export function Serie({ eventHandler, eventHandlerId }: any) {
   const navigate = useNavigate();
   const [serie, setSerie] = useState<CardType[]>([]);
   const [control, setControl] = useState<boolean>(false);
@@ -64,7 +63,8 @@ export function Serie({ eventHandler }: any) {
             <span>{el.avaliation}</span>
             <div className="div_button_card-serie">
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  eventHandlerId(e.currentTarget.ELEMENT_NODE)
                   navigate(RouterPath.FORM_UPDATE + el.id);
                 }}
               >
