@@ -33,8 +33,12 @@ export function Form({ isValid }: any) {
         const response = await Api.createSerie(data);
         if (response) {
           navigate(RouterPath.SERIES);
+        }        
+      } else if (isValid === 3) {
+        const response = await Api.createAnime(data)
+        if (response) {
+          navigate(RouterPath.ANIMES);
         }
-        
       }
     
   }

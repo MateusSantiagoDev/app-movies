@@ -47,7 +47,8 @@ export function Anime ({ eventHandler }: any) {
         <div className="div_header_anime-create">
           <button
             onClick={(e) => {
-                eventHandler(e.currentTarget.ELEMENT_NODE)
+                console.log(e.currentTarget.TEXT_NODE)
+                eventHandler(e.currentTarget.TEXT_NODE)
                 navigate(RouterPath.FORM);
             }}
           >
