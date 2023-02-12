@@ -1,5 +1,5 @@
 import './movie.css'
-import { MovieType } from './types/movie-type'
+import { CardType } from '../../utils/types/card-types'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Api } from '../../data/api/api'
@@ -7,7 +7,7 @@ import { RouterPath } from '../../routes/route-type'
 
 export function Movie () {
     const navigate = useNavigate()
-    const [movie, setMovie] = useState<MovieType[]>([])
+    const [movie, setMovie] = useState<CardType[]>([])
     const [control, setControl] = useState<boolean>(false)
 
     async function getMovies () {

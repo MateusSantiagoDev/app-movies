@@ -1,34 +1,42 @@
 import "./form.css";
-import { FormEvent } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { FormCard } from "./types/form-types";
 import { useNavigate, useParams } from "react-router-dom";
 import { Api } from "../../data/api/api";
 import { RouterPath } from "../../routes/route-type";
 
-export function Form() {
+export function Form({ isValid }: any) {
   const navigate = useNavigate();
   const id = useParams().id?.replace(":id", "");
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const data: FormCard = {
-      title: e.currentTarget.titleCard.value,
-      description: e.currentTarget.description.value,
-      avaliation: Number(e.currentTarget.avaliation.value),
-      image: e.currentTarget.image.value,
-    };
+    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+      e.preventDefault();
+      const data: FormCard = {
+        title: e.currentTarget.titleCard.value,
+        description: e.currentTarget.description.value,
+        avaliation: Number(e.currentTarget.avaliation.value),
+        image: e.currentTarget.image.value,
+      };
 
-    if (id) {
-      const response = await Api.updateMovie(data, id);
-      if (response) {
-        navigate(RouterPath.MOVIES);
+      if (!isValid) {
+        if(id) {
+          const response = await Api.updateMovie(data, id);
+          if (response) {
+            navigate(RouterPath.MOVIES);
+          }
+        }
+        const response = await Api.creatMovie(data);
+        if (response) {
+          navigate(RouterPath.MOVIES);
+        }
+      } else if (isValid === 1) {
+        const response = await Api.createSerie(data);
+        if (response) {
+          navigate(RouterPath.SERIES);
+        }
+        
       }
-    } else {
-      const response = await Api.creatMovie(data);
-      if (response) {
-        navigate(RouterPath.MOVIES);
-      }
-    }
+    
   }
   return (
     <div className="div_form">

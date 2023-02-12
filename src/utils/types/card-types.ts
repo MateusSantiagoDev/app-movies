@@ -1,4 +1,4 @@
-export interface MovieType {
+export interface CardType {
   id: string
   title: string
   description: string
