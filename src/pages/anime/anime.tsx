@@ -1,24 +1,24 @@
-import './serie.css'
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Api } from "../../data/api/api";
-import { RouterPath } from "../../routes/route-type";
-import { CardType } from "../../utils/types/card-types";
-import console from 'console';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Api } from '../../data/api/api';
+import { RouterPath } from '../../routes/route-type';
+import { CardType } from '../../utils/types/card-types';
+import './anime.css'
 
-export function Serie({ eventHandler }: any) {
-  const navigate = useNavigate();
+export function Anime ({ eventHandler }: any) {
+
+    const navigate = useNavigate();
   const [serie, setSerie] = useState<CardType[]>([]);
   const [control, setControl] = useState<boolean>(false);
 
-  async function getSeries() {
-    const response = await Api.getSerie();
+  async function getAnimes() {
+    const response = await Api.getAnime();
     setSerie(response);
     Render();
   }
 
-  async function deleteMovie(id: string) {
-    const response = await Api.deleteSerie(id);
+  async function deleteAnime(id: string) {
+    const response = await Api.deleteAnime(id);
     if (response) {
       Render();
     }
@@ -29,13 +29,13 @@ export function Serie({ eventHandler }: any) {
   }
 
   useEffect(() => {
-    getSeries();
+    getAnimes();
   }, [control]);
 
   return (
-    <div className="serie-card">
-      <div className="header_serie">
-        <div className="div_header_serie-exit">
+    <div className="anime-card">
+      <div className="header_anime">
+        <div className="div_header_anime-exit">
           <button
             onClick={() => {
               navigate(RouterPath.HOME);
@@ -44,25 +44,25 @@ export function Serie({ eventHandler }: any) {
             Voltar
           </button>
         </div>
-        <div className="div_header_serie-create">
+        <div className="div_header_anime-create">
           <button
             onClick={(e) => {
                 eventHandler(e.currentTarget.ELEMENT_NODE)
                 navigate(RouterPath.FORM);
             }}
           >
-            Nova Serie
+            Novo Anime
           </button>
         </div>
       </div>
-      <div className="div_serie_body-card">
+      <div className="div_anime_body-card">
         {serie.map((el, index) => (
-          <div className="body_serie" key={index}>
+          <div className="body_anime" key={index}>
             <h2>{el.title}</h2>
             <img src={el.image} alt="img" />
             <p>{el.description}</p>
             <span>{el.avaliation}</span>
-            <div className="div_button_card-serie">
+            <div className="div_button_card-anime">
               <button
                 onClick={() => {
                   navigate(RouterPath.FORM_UPDATE + el.id);
@@ -72,7 +72,7 @@ export function Serie({ eventHandler }: any) {
               </button>
               <button
                 onClick={() => {
-                  deleteMovie(el.id);
+                    deleteAnime(el.id);
                 }}
               >
                 Remover
@@ -81,7 +81,7 @@ export function Serie({ eventHandler }: any) {
           </div>
         ))}
       </div>
-      <div className="footer_serie"></div>
+      <div className="footer_anime"></div>
     </div>
   );
 }

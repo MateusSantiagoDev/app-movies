@@ -96,4 +96,29 @@ export const Api = {
     const response = await axios.patch(`/serie/${id}`, data);
     return response.data;
   },
+
+  createAnime: async ({ title, image, description, avaliation }: CardRequest) => {
+    const response = await axios.post("/anime", {
+     title,
+     image,
+     description,
+     avaliation,
+    })
+    return response.data;
+  },
+
+  getAnime: async () => {
+    const response = await axios.get("/anime");
+    return response.data;
+  },
+
+  deleteAnime: async (id: string) => {
+    const response = await axios.delete(`/anime/${id}`);
+    return response.data;
+  },
+
+  updateAnime: async (data: CardDataRequest, id: string) => {
+    const response = await axios.patch(`/anime/${id}`, data);
+    return response.data;
+  },
 };

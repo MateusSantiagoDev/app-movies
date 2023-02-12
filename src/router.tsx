@@ -6,7 +6,8 @@ import { Home } from "./pages/home/home";
 import { Movie } from "./pages/movie/movie"
 import { Form } from "./components/form/form";
 import { Serie } from "./pages/serie/serie";
-import { useState, MouseEvent } from "react";
+import { Anime } from './pages/anime/anime'
+import { useState } from "react";
 
 export function Router() {
 
@@ -19,6 +20,7 @@ export function Router() {
       <Route path={RouterPath.HOME} element={<Home />} />
       <Route path={RouterPath.MOVIES} element={<Movie />} />
       <Route path={RouterPath.SERIES} element={<Serie eventHandler={(e:any) => setIsValue(e)} />} />
+      <Route path={RouterPath.ANIMES} element={<Anime eventHandler={(e:any) => setIsValue(e)} />} />
       <Route path={RouterPath.FORM} element={<Form isValid={isValue} />} />
       <Route path={RouterPath.FORM_UPDATE} element={<Form isValid={isValue}/>} />
     </Routes>
