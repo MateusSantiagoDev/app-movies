@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CardDataRequest, CardRequest, LoginRequest, UserRequest } from "../types/api-types";
+import { CardDataRequest, CardRequest, LoginRequest, ProfileRequest, UserRequest } from "../types/api-types";
 
 axios.defaults.baseURL = "https://movies-backend-production.up.railway.app";
 axios.defaults.headers.post["content-type"] = "application/json";
@@ -121,4 +121,38 @@ export const Api = {
     const response = await axios.patch(`/anime/${id}`, data);
     return response.data;
   },
+
+  createPorfile: async ({ userEmail, movie, serie, anime }: ProfileRequest) => {
+    try {
+      const response = await axios.post("/profiles", {
+        userEmail,
+        movie:[movie],
+        serie:[serie],
+        anime:[anime],
+      });
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
+  getProfile: async (id: string) => {
+    const response = await axios.get(`profiles/${id}`);
+    return response.data;
+  },
+
+  getMovieId: async (id: string) => {
+    const response = await axios.get(`movie/${id}`);
+    return response.data;
+  },
+
+  getSerieId: async (id: string) => {
+    const response = await axios.get(`serie/${id}`);
+    return response.data;
+  },
+
+  getAnimeId: async (id: string) => {
+    const response = await axios.get(`anime/${id}`);
+    return response.data;
+  }
 };

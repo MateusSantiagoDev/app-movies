@@ -27,3 +27,10 @@ export interface CardDataRequest {
   avaliation: number;
   image: string;
 };
+
+export interface ProfileRequest {
+  userEmail: string;
+  movie: string[];
+  serie: string[];
+  anime: string[];
+};

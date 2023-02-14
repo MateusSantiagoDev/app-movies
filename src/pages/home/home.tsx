@@ -46,18 +46,18 @@ export function Home() {
         <div className='div_home_menu-img'>
       <div className="div_home-img">
         <div>
-          {stateMovie.map((el) => (
-            <img src={el.image} alt="img" />
+          {stateMovie.map((el, index) => (
+            <img src={el.image} alt="img" key={index}/>
           ))}
         </div>
         <div>
-        {stateAnime.map((el) => (
-            <img src={el.image} alt="img" />
+        {stateAnime.map((el, index) => (
+            <img src={el.image} alt="img" key={index}/>
           ))}
         </div>
         <div>
-        {stateSerie.map((el) => (
-            <img src={el.image} alt="img" />
+        {stateSerie.map((el, index) => (
+            <img src={el.image} alt="img" key={index}/>
           ))}
         </div>
       </div>

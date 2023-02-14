@@ -37,7 +37,7 @@
     cursor: pointer;
     padding: 0 .5rem;
     border-radius: .2rem;
-    font-weight: 700;
+    font-weight: 700;    
 }
 
 .div_movie_body-card {
@@ -65,6 +65,7 @@
 
 .body_movie img {
     width: 180px;
+    height: 100px;
 }
 
 .div_button_card-movie button {

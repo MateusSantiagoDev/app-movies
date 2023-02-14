@@ -8,6 +8,7 @@ import { Form } from "./components/form/form";
 import { Serie } from "./pages/serie/serie";
 import { Anime } from './pages/anime/anime'
 import { useState } from "react";
+import { Profiles } from './pages/perfils/profile'
 
 export function Router() {
 
@@ -19,6 +20,7 @@ export function Router() {
       <Route path={RouterPath.LOGIN} element={<Login />} />
       <Route path={RouterPath.REGISTRATION} element={<LoginForm />} />
       <Route path={RouterPath.HOME} element={<Home />} />
+      <Route path={RouterPath.PROFILES} element={<Profiles />} />
       <Route path={RouterPath.MOVIES} element={<Movie />} />
       <Route path={RouterPath.SERIES} element={<Serie eventHandler={(e:any) => setIsValue(e)} eventHandlerId={(e:any) => setIsValueId(e)}/>} />
       <Route path={RouterPath.ANIMES} element={<Anime eventHandler={(e:any) => setIsValue(e)} eventHandlerId={(e:any) => setIsValueId(e)}/>} />
