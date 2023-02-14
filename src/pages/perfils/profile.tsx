@@ -17,26 +17,20 @@ export function Profiles() {
 
   async function getMovie() {
     const response = await Api.getMovie();
-    if (response) {
       setMovie(response);
       Render();
-    }
   }
 
   async function getSerie() {
     const response = await Api.getSerie();
-    if (response) {
       setSerie(response);
       Render();
-    }
   }
 
   async function getAnime() {
     const response = await Api.getAnime();
-    if (response) {
       setAnime(response);
       Render();
-    }
   }
 
   function Render() {

@@ -17,10 +17,8 @@ export function Movie () {
     }
 
     async function deleteMovie (id: string) {
-        const response = await Api.deleteMovie(id)
-        if(response) {
-            Render()
-        }
+        await Api.deleteMovie(id)        
+        Render()        
     }
 
     function Render () {

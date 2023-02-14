@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Api } from '../../data/api/api';
-import { RouterPath } from '../../routes/route-type';
-import { CardType } from '../../utils/types/card-types';
-import './anime.css'
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Api } from "../../data/api/api";
+import { RouterPath } from "../../routes/route-type";
+import { CardType } from "../../utils/types/card-types";
+import "./anime.css";
 
-export function Anime ({ eventHandler, eventHandlerId }: any) {
-
-    const navigate = useNavigate();
+export function Anime({ eventHandler, eventHandlerId }: any) {
+  const navigate = useNavigate();
   const [serie, setSerie] = useState<CardType[]>([]);
   const [control, setControl] = useState<boolean>(false);
 
@@ -18,12 +17,10 @@ export function Anime ({ eventHandler, eventHandlerId }: any) {
   }
 
   async function deleteAnime(id: string) {
-    const response = await Api.deleteAnime(id);
-    if (response) {
-      Render();
-    }
+    await Api.deleteAnime(id);
+    Render();
   }
-  
+
   function Render() {
     setControl(!control);
   }
@@ -47,8 +44,8 @@ export function Anime ({ eventHandler, eventHandlerId }: any) {
         <div className="div_header_anime-create">
           <button
             onClick={(e) => {
-                eventHandler(e.currentTarget.TEXT_NODE)
-                navigate(RouterPath.FORM);
+              eventHandler(e.currentTarget.TEXT_NODE);
+              navigate(RouterPath.FORM);
             }}
           >
             Novo Anime
@@ -65,7 +62,7 @@ export function Anime ({ eventHandler, eventHandlerId }: any) {
             <div className="div_button_card-anime">
               <button
                 onClick={(e) => {
-                    eventHandlerId(e.currentTarget.TEXT_NODE)
+                  eventHandlerId(e.currentTarget.TEXT_NODE);
                   navigate(RouterPath.FORM_UPDATE + el.id);
                 }}
               >
@@ -73,7 +70,7 @@ export function Anime ({ eventHandler, eventHandlerId }: any) {
               </button>
               <button
                 onClick={() => {
-                    deleteAnime(el.id);
+                  deleteAnime(el.id);
                 }}
               >
                 Remover

@@ -1,4 +1,4 @@
-import './serie.css'
+import "./serie.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Api } from "../../data/api/api";
@@ -17,12 +17,10 @@ export function Serie({ eventHandler, eventHandlerId }: any) {
   }
 
   async function deleteMovie(id: string) {
-    const response = await Api.deleteSerie(id);
-    if (response) {
-      Render();
-    }
+    await Api.deleteSerie(id);
+    Render();
   }
-  
+
   function Render() {
     setControl(!control);
   }
@@ -46,8 +44,8 @@ export function Serie({ eventHandler, eventHandlerId }: any) {
         <div className="div_header_serie-create">
           <button
             onClick={(e) => {
-                eventHandler(e.currentTarget.ELEMENT_NODE)
-                navigate(RouterPath.FORM);
+              eventHandler(e.currentTarget.ELEMENT_NODE);
+              navigate(RouterPath.FORM);
             }}
           >
             Nova Serie
@@ -64,7 +62,7 @@ export function Serie({ eventHandler, eventHandlerId }: any) {
             <div className="div_button_card-serie">
               <button
                 onClick={(e) => {
-                  eventHandlerId(e.currentTarget.ELEMENT_NODE)
+                  eventHandlerId(e.currentTarget.ELEMENT_NODE);
                   navigate(RouterPath.FORM_UPDATE + el.id);
                 }}
               >

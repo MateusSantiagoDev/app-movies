@@ -1,5 +1,11 @@
 import axios from "axios";
-import { CardDataRequest, CardRequest, LoginRequest, ProfileRequest, UserRequest } from "../types/api-types";
+import {
+  CardDataRequest,
+  CardRequest,
+  LoginRequest,
+  UserRequest,
+} from "../types/api-types";
+import { HandleError } from '../../utils/error/error'
 
 axios.defaults.baseURL = "https://movies-backend-production.up.railway.app";
 axios.defaults.headers.post["content-type"] = "application/json";
@@ -37,122 +43,155 @@ export const Api = {
       localStorage.setItem("email", response.data.user.email);
       console.log(response);
       return response.data;
-    } catch (err) {
-      alert(err);
+    } catch (err: any) {
+      HandleError({ message: err.message });
     }
   },
 
   createUser: async (user: UserRequest) => {
-    const response = await axios.post("/user", user);
-    return response.data;
-  },
-
-  creatMovie: async ({ title, image, description, avaliation }: CardRequest) => {
-    const response = await axios.post("/movie", {
-     title,
-     image,
-     description,
-     avaliation,
-    })
-    return response.data;
-  },
-
-  getMovie: async () => {
-    const response = await axios.get("/movie");
-    return response.data;
-  },
-
-  deleteMovie: async (id: string) => {
-    const response = await axios.delete(`/movie/${id}`);
-    return response.data;
-  },
-
-  updateMovie: async (data: CardDataRequest, id: string) => {
-    const response = await axios.patch(`/movie/${id}`, data);
-    return response.data;
-  },
-
-  createSerie: async ({ title, image, description, avaliation }: CardRequest) => {
-    const response = await axios.post("/serie", {
-     title,
-     image,
-     description,
-     avaliation,
-    })
-    return response.data;
-  },
-
-  getSerie: async () => {
-    const response = await axios.get("/serie");
-    return response.data;
-  },
-
-  deleteSerie: async (id: string) => {
-    const response = await axios.delete(`/serie/${id}`);
-    return response.data;
-  },
-
-  updateSerie: async (data: CardDataRequest, id: string) => {
-    const response = await axios.patch(`/serie/${id}`, data);
-    return response.data;
-  },
-
-  createAnime: async ({ title, image, description, avaliation }: CardRequest) => {
-    const response = await axios.post("/anime", {
-     title,
-     image,
-     description,
-     avaliation,
-    })
-    return response.data;
-  },
-
-  getAnime: async () => {
-    const response = await axios.get("/anime");
-    return response.data;
-  },
-
-  deleteAnime: async (id: string) => {
-    const response = await axios.delete(`/anime/${id}`);
-    return response.data;
-  },
-
-  updateAnime: async (data: CardDataRequest, id: string) => {
-    const response = await axios.patch(`/anime/${id}`, data);
-    return response.data;
-  },
-
-  createPorfile: async ({ userEmail, movie, serie, anime }: ProfileRequest) => {
     try {
-      const response = await axios.post("/profiles", {
-        userEmail,
-        movie:[movie],
-        serie:[serie],
-        anime:[anime],
-      });
+      const response = await axios.post("/user", user);
       return response.data;
-    } catch (err) {
-      alert(err);
+    } catch (err: any) {
+      HandleError({ message: err.message });
     }
   },
 
-  getProfile: async (id: string) => {
-    const response = await axios.get(`profiles/${id}`);
-    return response.data;
+  creatMovie: async ({
+    title,
+    image,
+    description,
+    avaliation,
+  }: CardRequest) => {
+    try {
+      const response = await axios.post("/movie", {
+        title,
+        image,
+        description,
+        avaliation,
+      });
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
   },
 
-  getMovieId: async (id: string) => {
-    const response = await axios.get(`movie/${id}`);
-    return response.data;
+  getMovie: async () => {
+    try {
+      const response = await axios.get("/movie");
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
   },
 
-  getSerieId: async (id: string) => {
-    const response = await axios.get(`serie/${id}`);
-    return response.data;
+  deleteMovie: async (id: string) => {
+    try {
+      const response = await axios.delete(`/movie/${id}`);
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
   },
 
-  getAnimeId: async (id: string) => {
-    const response = await axios.get(`anime/${id}`);
-    return response.data;
-  }
+  updateMovie: async (data: CardDataRequest, id: string) => {
+    try {
+      const response = await axios.patch(`/movie/${id}`, data);
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
+  },
+
+  createSerie: async ({
+    title,
+    image,
+    description,
+    avaliation,
+  }: CardRequest) => {
+    try {
+      const response = await axios.post("/serie", {
+        title,
+        image,
+        description,
+        avaliation,
+      });
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
+  },
+
+  getSerie: async () => {
+    try {
+      const response = await axios.get("/serie");
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
+  },
+
+  deleteSerie: async (id: string) => {
+    try {
+      const response = await axios.delete(`/serie/${id}`);
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
+  },
+
+  updateSerie: async (data: CardDataRequest, id: string) => {
+    try {
+      const response = await axios.patch(`/serie/${id}`, data);
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
+  },
+
+  createAnime: async ({
+    title,
+    image,
+    description,
+    avaliation,
+  }: CardRequest) => {
+    try {
+      const response = await axios.post("/anime", {
+        title,
+        image,
+        description,
+        avaliation,
+      });
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
+  },
+
+  getAnime: async () => {
+    try {
+      const response = await axios.get("/anime");
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
+  },
+
+  deleteAnime: async (id: string) => {
+    try {
+      const response = await axios.delete(`/anime/${id}`);
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
+  },
+
+  updateAnime: async (data: CardDataRequest, id: string) => {
+    try {
+      const response = await axios.patch(`/anime/${id}`, data);
+      return response.data;
+    } catch (err: any) {
+      HandleError({ message: err.message });
+    }
+  },
 };
