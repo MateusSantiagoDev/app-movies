@@ -19,8 +19,9 @@ export function Home() {
     fetch("https://app-movies-mu.vercel.app/static/series.json")
       .then((res) => res.json())
       .then(setStateSerie);
+    
 
-    fetch("https://app-movies-mu.vercel.app/animes.json")
+    fetch("https://app-movies-mu.vercel.app/static/animes.json")
       .then((res) => res.json())
       .then(setStateAnime);
   }, []);
