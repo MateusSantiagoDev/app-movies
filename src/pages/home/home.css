@@ -35,7 +35,7 @@
 }
 
 .div_home-img div img {
-  height: 220px;
+  height: 200px;
   object-fit: cover(10%);
   width: calc(20%);
   margin-left: 0px;
