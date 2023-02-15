@@ -24,7 +24,7 @@ export function Home() {
       .then((res) => res.json())
       .then(setStateAnime);
   }, []);
-
+/* 
   if (!stateMovie || !stateMovie.length) {
     return null;
   }
@@ -33,7 +33,7 @@ export function Home() {
   }
   if (!stateSerie || !stateSerie.length) {
     return null;
-  }
+  } */
 
   function logout(){  
     localStorage.removeItem("token");
