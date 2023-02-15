@@ -12,15 +12,15 @@ export function Home() {
   const [stateSerie, setStateSerie] = useState<homeImg[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/static/movies.json")
+    fetch("https://app-movies-mu.vercel.app/static/movies.json")
       .then((res) => res.json())
       .then(setStateMovie);
 
-    fetch("http://localhost:3000/static/series.json")
+    fetch("https://app-movies-mu.vercel.app/static/series.json")
       .then((res) => res.json())
       .then(setStateSerie);
 
-    fetch("http://localhost:3000/static/animes.json")
+    fetch("https://app-movies-mu.vercel.app/animes.json")
       .then((res) => res.json())
       .then(setStateAnime);
   }, []);
